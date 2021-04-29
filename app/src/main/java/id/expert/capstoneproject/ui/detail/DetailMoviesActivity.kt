@@ -8,7 +8,6 @@ import androidx.core.app.ShareCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
-import id.expert.capstoneproject.BuildConfig.IMAGE_URL
 import id.expert.capstoneproject.R
 import id.expert.capstoneproject.core.data.Resource
 import id.expert.capstoneproject.core.domain.model.Movies
@@ -17,8 +16,6 @@ import id.expert.capstoneproject.core.utils.Constant.Companion.DATE_CURRENT_FORM
 import id.expert.capstoneproject.core.utils.Constant.Companion.DATE_REQUIRED_FORMAT
 import id.expert.capstoneproject.core.utils.Constant.Companion.EXTRA_MOVIES
 import id.expert.capstoneproject.core.utils.Helper.changeDateFormat
-import id.expert.capstoneproject.core.utils.Helper.setGlide
-import id.expert.capstoneproject.core.utils.Helper.setGlideWithRadius
 import id.expert.capstoneproject.core.utils.gone
 import id.expert.capstoneproject.databinding.ActivityDetailMoviesBinding
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -43,6 +40,7 @@ class DetailMoviesActivity : AppCompatActivity() {
 
         detailMovies = intent.getParcelableExtra(EXTRA_MOVIES)
         detailMovies?.let { detailMoviesViewModel.setMoviesId(it) }
+        binding.result = detailMovies
 
         showSimilarMovies()
         showDetailMovies(detailMovies)
@@ -54,6 +52,7 @@ class DetailMoviesActivity : AppCompatActivity() {
             val intentToDetail = Intent(this, DetailMoviesActivity::class.java)
             intentToDetail.putExtra(EXTRA_MOVIES, selectedData)
             startActivity(intentToDetail)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
 
         binding.rvSimilarMovies.layoutManager =
@@ -89,36 +88,15 @@ class DetailMoviesActivity : AppCompatActivity() {
             binding.btnShare.setOnClickListener {
                 shareMovies()
             }
-            setGlide(
-                this@DetailMoviesActivity,
-                "${IMAGE_URL}${detailMovies.backdropPath}",
-                binding.ivBackdrop
-            )
-            setGlideWithRadius(
-                this@DetailMoviesActivity,
-                "${IMAGE_URL}${detailMovies.posterPath}",
-                binding.ivPoster
-            )
 
-            val releaseDate = changeDateFormat(
+            moviesTitle = detailMovies.title
+            moviesRating = detailMovies.voteAverage.toString()
+            moviesReleaseYear = changeDateFormat(
                 DATE_CURRENT_FORMAT,
                 DATE_REQUIRED_FORMAT,
                 detailMovies.releaseDate
             )
-
-            moviesTitle = detailMovies.title
-            moviesRating = detailMovies.voteAverage.toString()
-            moviesReleaseYear = releaseDate
             moviesOverview = detailMovies.overview
-
-            binding.tvTitle.text = moviesTitle
-            binding.tvReleaseYear.text = moviesReleaseYear
-            binding.tvLanguage.text = detailMovies.originalLanguage
-            binding.ratingBar.rating = detailMovies.voteAverage / 2
-            binding.tvRating.text = moviesRating
-            binding.tvOverview.text = moviesOverview
-            binding.tvVoteCount.text =
-                getString(R.string.vote_count, detailMovies.voteCount.toString())
 
             var statusFavorite = detailMovies.isFavorite
             setStatusFavorite(statusFavorite)
