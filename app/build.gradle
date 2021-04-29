@@ -1,0 +1,68 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+}
+
+apply from: '../shared_dependencies.gradle'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "id.expert.capstoneproject"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', "API_KEY", MoviesCatalogue_ApiKey
+            buildConfigField 'String', "BASE_URL", MoviesCatalogue_BaseUrl
+            buildConfigField 'String', "IMAGE_URL", MoviesCatalogue_ImageUrl
+            buildConfigField 'String', "CERT_BASE_URL", Certificate_BaseUrl
+            buildConfigField 'String', "CERT_0", Certificate_Pinning0
+            buildConfigField 'String', "CERT_1", Certificate_Pinning1
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', "API_KEY", MoviesCatalogue_ApiKey
+            buildConfigField 'String', "BASE_URL", MoviesCatalogue_BaseUrl
+            buildConfigField 'String', "IMAGE_URL", MoviesCatalogue_ImageUrl
+            buildConfigField 'String', "CERT_BASE_URL", Certificate_BaseUrl
+            buildConfigField 'String', "CERT_0", Certificate_Pinning0
+            buildConfigField 'String', "CERT_1", Certificate_Pinning1
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+    dynamicFeatures = [':favorite']
+}
+
+dependencies {
+    implementation project(":core")
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // Leak Canary
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leak_canary"
+}
