@@ -37,25 +37,28 @@ class FavoriteFragment : Fragment() {
 
         if (activity != null) {
             loadKoinModules(favoriteModule)
-
-            val moviesAdapter = MoviesAdapter()
-            moviesAdapter.onItemClick = { selectedData ->
-                val intentToDetail = Intent(activity, DetailMoviesActivity::class.java)
-                intentToDetail.putExtra(EXTRA_MOVIES, selectedData)
-                startActivity(intentToDetail)
-                activity?.overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-            }
-
-            favoriteViewModel.favoriteMovies.observe(viewLifecycleOwner, { dataMovies ->
-                moviesAdapter.setData(dataMovies)
-                binding?.viewNoData?.root?.visibility =
-                    if (dataMovies.isNotEmpty()) View.GONE else View.VISIBLE
-            })
-
-            binding?.rvFavoriteMovies?.layoutManager = GridLayoutManager(context, 2)
-            binding?.rvFavoriteMovies?.setHasFixedSize(true)
-            binding?.rvFavoriteMovies?.adapter = moviesAdapter
+            showFavoriteMovies()
         }
+    }
+
+    private fun showFavoriteMovies() {
+        val moviesAdapter = MoviesAdapter()
+        moviesAdapter.onItemClick = { selectedData ->
+            val intentToDetail = Intent(activity, DetailMoviesActivity::class.java)
+            intentToDetail.putExtra(EXTRA_MOVIES, selectedData)
+            startActivity(intentToDetail)
+            activity?.overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        }
+
+        favoriteViewModel.favoriteMovies.observe(viewLifecycleOwner, { dataMovies ->
+            moviesAdapter.setData(dataMovies)
+            binding?.viewNoData?.root?.visibility =
+                if (dataMovies.isNotEmpty()) View.GONE else View.VISIBLE
+        })
+
+        binding?.rvFavoriteMovies?.layoutManager = GridLayoutManager(context, 2)
+        binding?.rvFavoriteMovies?.setHasFixedSize(true)
+        binding?.rvFavoriteMovies?.adapter = moviesAdapter
     }
 
     override fun onDestroy() {
