@@ -36,34 +36,38 @@ class MoviesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
-            val moviesAdapter = MoviesAdapter()
-            moviesAdapter.onItemClick = { selectedData ->
-                val intentToDetail = Intent(activity, DetailMoviesActivity::class.java)
-                intentToDetail.putExtra(EXTRA_MOVIES, selectedData)
-                startActivity(intentToDetail)
-                activity?.overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-            }
+            showListMovies()
+        }
+    }
 
-            moviesViewModel.movies.observe(viewLifecycleOwner, { movies ->
-                if (movies != null) {
-                    when (movies) {
-                        is Resource.Loading -> showShimmer()
-                        is Resource.Success -> {
-                            hideShimmer()
-                            moviesAdapter.setData(movies.data)
-                        }
-                        is Resource.Error -> {
-                            hideShimmer()
-                            binding?.viewError?.root?.visible()
-                        }
+    private fun showListMovies() {
+        val moviesAdapter = MoviesAdapter()
+        moviesAdapter.onItemClick = { selectedData ->
+            val intentToDetail = Intent(activity, DetailMoviesActivity::class.java)
+            intentToDetail.putExtra(EXTRA_MOVIES, selectedData)
+            startActivity(intentToDetail)
+            activity?.overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        }
+
+        moviesViewModel.movies.observe(viewLifecycleOwner, { movies ->
+            if (movies != null) {
+                when (movies) {
+                    is Resource.Loading -> showShimmer()
+                    is Resource.Success -> {
+                        hideShimmer()
+                        moviesAdapter.setData(movies.data)
+                    }
+                    is Resource.Error -> {
+                        hideShimmer()
+                        binding?.viewError?.root?.visible()
                     }
                 }
-            })
+            }
+        })
 
-            binding?.rvMovies?.layoutManager = GridLayoutManager(context, 2)
-            binding?.rvMovies?.setHasFixedSize(true)
-            binding?.rvMovies?.adapter = moviesAdapter
-        }
+        binding?.rvMovies?.layoutManager = GridLayoutManager(context, 2)
+        binding?.rvMovies?.setHasFixedSize(true)
+        binding?.rvMovies?.adapter = moviesAdapter
     }
 
     private fun showShimmer() {
