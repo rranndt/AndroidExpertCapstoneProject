@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import id.expert.capstoneproject.R
 import id.expert.capstoneproject.core.data.Resource
 import id.expert.capstoneproject.core.ui.MoviesAdapter
 import id.expert.capstoneproject.core.utils.Constant.Companion.EXTRA_MOVIES
@@ -27,7 +28,7 @@ class MoviesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentMoviesBinding.inflate(inflater, container, false)
+        _binding = FragmentMoviesBinding.inflate(layoutInflater, container, false)
         return binding?.root
     }
 
@@ -35,12 +36,12 @@ class MoviesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
-
             val moviesAdapter = MoviesAdapter()
             moviesAdapter.onItemClick = { selectedData ->
                 val intentToDetail = Intent(activity, DetailMoviesActivity::class.java)
                 intentToDetail.putExtra(EXTRA_MOVIES, selectedData)
                 startActivity(intentToDetail)
+                activity?.overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             }
 
             moviesViewModel.movies.observe(viewLifecycleOwner, { movies ->
