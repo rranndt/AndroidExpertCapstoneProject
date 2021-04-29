@@ -162,8 +162,8 @@ class DetailMoviesActivity : AppCompatActivity() {
         binding.rvSimilarMovies.hideShimmer()
     }
 
-    // Fix MemoryLeak/LibraryLeak di pengguna Android Q
     override fun onBackPressed() {
-        finishAfterTransition()
+        super.onBackPressed()
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
     }
 }
