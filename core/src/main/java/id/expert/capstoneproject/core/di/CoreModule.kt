@@ -1,6 +1,7 @@
 package id.expert.capstoneproject.core.di
 
 import androidx.room.Room
+import id.expert.capstoneproject.core.BuildConfig
 import id.expert.capstoneproject.core.BuildConfig.*
 import id.expert.capstoneproject.core.data.MoviesRepository
 import id.expert.capstoneproject.core.data.source.local.LocalDataSource
@@ -36,10 +37,10 @@ val databaseModule = module {
 
 val networkModule = module {
     single {
-        val hostname = CERT_BASE_URL
+        val hostname = CERT_URL
         val certificatePinner = CertificatePinner.Builder()
-            .add(hostname, CERT_0)
-            .add(hostname, CERT_1)
+            .add(hostname, CERT_PINNING0)
+            .add(hostname, CERT_PINNING1)
             .build()
         OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))

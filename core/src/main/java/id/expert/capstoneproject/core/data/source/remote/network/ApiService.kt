@@ -1,6 +1,6 @@
 package id.expert.capstoneproject.core.data.source.remote.network
 
-import id.expert.capstoneproject.core.BuildConfig
+import id.expert.capstoneproject.core.BuildConfig.API_KEY
 import id.expert.capstoneproject.core.data.source.remote.response.ListMoviesResponse
 import id.expert.capstoneproject.core.utils.Constant.Companion.MOVIES_POPULAR
 import id.expert.capstoneproject.core.utils.Constant.Companion.MOVIES_SIMILAR
@@ -14,12 +14,12 @@ interface ApiService {
 
     @GET(MOVIES_POPULAR)
     suspend fun getMovies(
-        @Query(STRING_API_KEY) api: String? = BuildConfig.API_KEY
+        @Query(STRING_API_KEY) api: String? = API_KEY
     ): ListMoviesResponse
 
     @GET(MOVIES_SIMILAR)
     suspend fun getSimilarMovies(
         @Path(STRING_MOVIES_ID) moviesId: String,
-        @Query(STRING_API_KEY) api: String? = BuildConfig.API_KEY
+        @Query(STRING_API_KEY) api: String? = API_KEY
     ): ListMoviesResponse
 }

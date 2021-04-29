@@ -5,6 +5,14 @@ plugins {
     id 'kotlin-kapt'
 }
 
+def STRING = 'String'
+def API_KEY= '"02a392537fe5d151a7e58efe5f2e1838"'
+def BASE_URL = '"https://api.themoviedb.org/3/"'
+def IMAGE_URL = '"https://image.tmdb.org/t/p/original"'
+def CERT_URL = '"*.themoviedb.org"'
+def CERT_PINNING0 = '"sha256/+vqZVAzTqUP8BGkfl88yU7SQ3C8J2uNEa55B7RZjEg0="'
+def CERT_PINNING1 = '"sha256/JSMzqOOrtyOT1kmau6zKhgT676hGgczD5VMdRMyJZFA="'
+
 apply from: '../shared_dependencies.gradle'
 
 android {
@@ -19,28 +27,23 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        buildConfigField STRING, 'API_KEY', API_KEY
+        buildConfigField STRING, 'BASE_URL', BASE_URL
+        buildConfigField STRING, 'IMAGE_URL', IMAGE_URL
+        buildConfigField STRING, 'CERT_URL', CERT_URL
+        buildConfigField STRING, 'CERT_PINNING0', CERT_PINNING0
+        buildConfigField STRING, 'CERT_PINNING1', CERT_PINNING1
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField 'String', "API_KEY", MoviesCatalogue_ApiKey
-            buildConfigField 'String', "BASE_URL", MoviesCatalogue_BaseUrl
-            buildConfigField 'String', "IMAGE_URL", MoviesCatalogue_ImageUrl
-            buildConfigField 'String', "CERT_BASE_URL", Certificate_BaseUrl
-            buildConfigField 'String', "CERT_0", Certificate_Pinning0
-            buildConfigField 'String', "CERT_1", Certificate_Pinning1
         }
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField 'String', "API_KEY", MoviesCatalogue_ApiKey
-            buildConfigField 'String', "BASE_URL", MoviesCatalogue_BaseUrl
-            buildConfigField 'String', "IMAGE_URL", MoviesCatalogue_ImageUrl
-            buildConfigField 'String', "CERT_BASE_URL", Certificate_BaseUrl
-            buildConfigField 'String', "CERT_0", Certificate_Pinning0
-            buildConfigField 'String', "CERT_1", Certificate_Pinning1
         }
     }
     compileOptions {
