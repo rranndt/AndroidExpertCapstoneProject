@@ -1,14 +1,10 @@
 package id.expert.capstoneproject.core.ui
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import id.expert.capstoneproject.core.BuildConfig.IMAGE_URL
-import id.expert.capstoneproject.core.R
 import id.expert.capstoneproject.core.databinding.RecyclerItemGridSimilarMoviesBinding
 import id.expert.capstoneproject.core.domain.model.Movies
-import id.expert.capstoneproject.core.utils.Helper
 
 class MoviesSimilarAdapter : RecyclerView.Adapter<MoviesSimilarAdapter.ListViewHolder>() {
 
@@ -26,9 +22,9 @@ class MoviesSimilarAdapter : RecyclerView.Adapter<MoviesSimilarAdapter.ListViewH
         parent: ViewGroup,
         viewType: Int
     ): MoviesSimilarAdapter.ListViewHolder {
-        return ListViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.recycler_item_grid_similar_movies, parent, false)
-        )
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val binding = RecyclerItemGridSimilarMoviesBinding.inflate(layoutInflater, parent, false)
+        return ListViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: MoviesSimilarAdapter.ListViewHolder, position: Int) {
@@ -40,18 +36,12 @@ class MoviesSimilarAdapter : RecyclerView.Adapter<MoviesSimilarAdapter.ListViewH
         return listData.size
     }
 
-    inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val binding = RecyclerItemGridSimilarMoviesBinding.bind(itemView)
+    inner class ListViewHolder(private val binding: RecyclerItemGridSimilarMoviesBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Movies) {
             with(binding) {
-                Helper.setGlide(
-                    itemView.context,
-                    "$IMAGE_URL${data.posterPath}",
-                    ivPoster
-                )
-                tvTitle.text = data.title
-                ratingBar.rating = data.voteAverage / 2
-                tvRating.text = data.voteAverage.toString()
+                result = data
+                executePendingBindings()
             }
         }
 
