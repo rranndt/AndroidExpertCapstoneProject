@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import id.expert.capstoneproject.R
 import id.expert.capstoneproject.core.ui.MoviesAdapter
 import id.expert.capstoneproject.core.utils.Constant.Companion.EXTRA_MOVIES
 import id.expert.capstoneproject.favorite.databinding.FragmentFavoriteBinding
@@ -42,6 +43,7 @@ class FavoriteFragment : Fragment() {
                 val intentToDetail = Intent(activity, DetailMoviesActivity::class.java)
                 intentToDetail.putExtra(EXTRA_MOVIES, selectedData)
                 startActivity(intentToDetail)
+                activity?.overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             }
 
             favoriteViewModel.favoriteMovies.observe(viewLifecycleOwner, { dataMovies ->
