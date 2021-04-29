@@ -53,4 +53,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // Fix MemoryLeak/LibraryLeak for Android Q user
+    override fun onBackPressed() {
+        finishAfterTransition()
+    }
+
 }
