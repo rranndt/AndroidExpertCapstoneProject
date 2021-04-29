@@ -9,9 +9,6 @@ class DetailMoviesViewModel(private val moviesUseCase: MoviesUseCase) : ViewMode
 
     private var moviesList = MutableLiveData<Movies>()
 
-    fun setFavoriteItem(movies: Movies, newStatus: Boolean) =
-        moviesUseCase.setFavoriteMovies(movies, newStatus)
-
     private var similarMovies = moviesList.switchMap {
         moviesUseCase.getSimilarMovies(it.id).asLiveData()
     }
@@ -21,5 +18,8 @@ class DetailMoviesViewModel(private val moviesUseCase: MoviesUseCase) : ViewMode
     }
 
     fun getSimilarMovies(): LiveData<Resource<List<Movies>>> = similarMovies
+
+    fun setFavoriteItem(movies: Movies, newStatus: Boolean) =
+        moviesUseCase.setFavoriteMovies(movies, newStatus)
 
 }
