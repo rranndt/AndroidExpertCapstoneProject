@@ -10,21 +10,9 @@
   <a href="https://developer.android.com/studio/releases/gradle-plugin"><img alt="Gradle" src="https://img.shields.io/badge/gradle-4.1.3-yellow"></a>
 </p>
 
-## Some Screenshot App
-<h3 align="center"> Screen List </h3>
-<p align="center">
-  <img src="asset/SplashScreen.png" 
-       width="200" />
-  <img src="asset/MainScreen.png"
-       width="200"/>
-  <img src="asset/FavoriteScreen.png"
-       width="200"/>
-  <img src="asset/DetailScreen.png"
-       width="200"/>
-</p>
-
 ## Table of Contents
 - [Introduction](#Introduction)
+- [Demo App](#Demo-App)
 - [Installation](#Installation)
 - [Features](#Features)
 - [Tech Stack](#Tech-Stack)
@@ -36,6 +24,19 @@ This project is actually just a simple project, This project was created to meet
 There are several branches, but the 'master' branch is the latest update. I'm using (https://www.themoviedb.org/) as a base url for this project.
 
 You can get the API_KEY at (https://developers.themoviedb.org/3)
+
+## Demo App
+<h3 align="center"> Screen List </h3>
+<p align="center">
+  <img src="asset/SplashScreen.png"
+       width="200" />
+  <img src="asset/MainScreen.png"
+       width="200"/>
+  <img src="asset/FavoriteScreen.png"
+       width="200"/>
+  <img src="asset/DetailScreen.png"
+       width="200"/>
+</p>
 
 ## Installation 
 Clone this repository    
