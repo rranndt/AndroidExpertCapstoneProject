@@ -8,7 +8,19 @@
   <a href="http://developer.android.com/index.html"><img alt="Platform" src="https://img.shields.io/badge/platform-Android-green"></a>
   <a href="http://kotlinlang.org"><img alt="Kotlin" src="https://img.shields.io/badge/kotlin-1.4.32-blue"></a>
   <a href="https://developer.android.com/studio/releases/gradle-plugin"><img alt="Gradle" src="https://img.shields.io/badge/gradle-4.1.3-yellow"></a>
- 
+</p>
+
+## Some Screenshot App
+<h3 align="center"> Screen List </h3>
+<p align="center">
+  <img src="asset/SplashScreen.png" 
+       width="210" />
+  <img src="asset/MainScreen.png"
+       width="210"/>
+  <img src="asset/FavoriteScreen.png"
+       width="210"/>
+  <img src="asset/DetailScreen.png"
+       width="210"/>
 </p>
 
 ## Table of Contents
@@ -21,6 +33,16 @@
 
 This project was created to meet the requirements for submission of the coded android expert class, this project is actually just a simple project. There are several braches, but the 'master' branch is the last update. I am using [TheMovieDatabase] (https://www.themoviedb.org/) as the base url for this project.
 You can get API_KEY at [TheMovieDb] (https://developers.themoviedb.org/3)
+
+## Installation 
+Clone this repository    
+```
+    https://github.com/rizriana/AndroidExpertCapstoneProject.git
+```    
+> This repository has 3 branch
+> 1. master - combination of branches 1, 2 and 3
+> 2. project_latest - contains tasks from project_without_obfuscate
+> 3. project_without_obfuscate - same project just without obfuscation
 
 ## Features
 - Get All the Movies
