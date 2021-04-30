@@ -40,9 +40,9 @@ Clone this repository
     https://github.com/rizriana/AndroidExpertCapstoneProject.git
 ```    
 > This repository has 3 branch
-> 1. master - combination of branches 1, 2 and 3
-> 2. project_latest - contains tasks from project_without_obfuscate
-> 3. project_without_obfuscate - same project just without obfuscation
+> 1. Master - combination of branches 2 and 3
+> 2. Project Latest - contains tasks from project_without_obfuscate
+> 3. Project Without Obfuscation - same project just without obfuscation
 
 ## Features
 - Get All the Movies
