@@ -24,10 +24,11 @@
 </p>
 
 ## Table of Contents
-- [Introduction](#introduction)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Dependencies](#dependencies)
+- [Introduction](#Introduction)
+- [Installation](#Installation)
+- [Features](#Features)
+- [Tech Stack](#Tech Stack)
+- [Dependencies](#Dependencies)
 
 ## Introduction
 
