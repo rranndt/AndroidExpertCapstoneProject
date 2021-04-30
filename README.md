@@ -29,7 +29,7 @@ You can get the API_KEY at (https://developers.themoviedb.org/3)
 ## Demo App
 <h3 align="center"> Screen List </h3>
 <p align="center">
-  <img src="asset/SplashScreen.png"
+  <img src="asset/NoFavoriteMovie.gif?raw=true"
        width="200" />
   <img src="asset/MainScreen.png"
        width="200"/>
