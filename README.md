@@ -14,13 +14,13 @@
 <h3 align="center"> Screen List </h3>
 <p align="center">
   <img src="asset/SplashScreen.png" 
-       width="210" />
+       width="200" />
   <img src="asset/MainScreen.png"
-       width="210"/>
+       width="200"/>
   <img src="asset/FavoriteScreen.png"
-       width="210"/>
+       width="200"/>
   <img src="asset/DetailScreen.png"
-       width="210"/>
+       width="200"/>
 </p>
 
 ## Table of Contents
