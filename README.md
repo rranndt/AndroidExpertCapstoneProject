@@ -8,7 +8,6 @@
   <a href="http://developer.android.com/index.html"><img alt="Platform" src="https://img.shields.io/badge/platform-Android-green"></a>
   <a href="http://kotlinlang.org"><img alt="Kotlin" src="https://img.shields.io/badge/kotlin-1.4.32-blue"></a>
   <a href="https://developer.android.com/studio/releases/gradle-plugin"><img alt="Gradle" src="https://img.shields.io/badge/gradle-4.1.3-yellow"></a>
-  [![rizriana](https://circleci.com/gh/rizriana/AndroidExpertCapstoneProject.svg?style=svg)](https://circleci.com/gh/rizriana/AndroidExpertCapstoneProject)
 </p>
 
 ## Table of Contents
