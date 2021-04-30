@@ -19,13 +19,12 @@
 
 ## Introduction
 
-This project was created to meet the requirements for submission of the coded android expert class, there are several braches, but the 'master' branch is the last update.
-I am using [TheMovieDatabase] (https://www.themoviedb.org/) as the base url for this project.
+This project was created to meet the requirements for submission of the coded android expert class, this project is actually just a simple project. There are several braches, but the 'master' branch is the last update. I am using [TheMovieDatabase] (https://www.themoviedb.org/) as the base url for this project.
 You can get API_KEY at [TheMovieDb] (https://developers.themoviedb.org/3)
 
 ## Features
 - Get All the Movies
-- Favorited Movies
+- Favorite Movies
 - Share the Movies to other Application
 
 ## Tech Stack
