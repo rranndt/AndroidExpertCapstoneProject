@@ -44,7 +44,7 @@ Clone this repository
 > This repository has 3 branch
 > 1. Master - combination of branches 2 and 3
 > 2. Project Latest - contains tasks from project_without_obfuscate
-> 3. Project Without Obfuscation - same project just without obfuscation
+> 3. Project Without Obfuscation - Just "Project Latest" without obfuscation
 
 ## Features
 - Get All the Movies
