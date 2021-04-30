@@ -27,15 +27,35 @@ There are several branches, but the 'master' branch is the latest update. I'm us
 You can get the API_KEY at (https://developers.themoviedb.org/3)
 
 ## Demo App
-<h3 align="center"> Screen List </h3>
+<h3 align="center"> Splash Screen </h3>
 <p align="center">
-  <img src="asset/SplashScreen.png"
+  <img src="assets/SplashScreen.gif"
        width="200" />
-  <img src="asset/MainScreen.png"
+</p>
+
+<h3 align="center"> Movies Screen </h3>
+<p align="center">
+  <img src="assets/MovieList.gif"
        width="200"/>
-  <img src="asset/FavoriteScreen.png"
+  <img src="assets/MovieShimmerScreen.gif"
        width="200"/>
-  <img src="asset/DetailScreen.png"
+  <img src="assets/MoviesErrorScreen.gif"
+       width="200"/>
+</p>
+
+<h3 align="center"> Favorite Screen </h3>
+<p align="center">
+  <img src="assets/FavoriteList.gif"
+       width="200"/>
+  <img src="assets/NoFavoriteMovie.gif"
+       width="200"/>
+</p>
+
+<h3 align="center"> Detail Screen </h3>
+<p align="center">
+  <img src="assets/MovieDetail.gif"
+       width="200"/>
+  <img src="assets/MovieDetailloading.gif"
        width="200"/>
 </p>
 
