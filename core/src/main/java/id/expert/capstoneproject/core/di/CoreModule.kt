@@ -1,7 +1,6 @@
 package id.expert.capstoneproject.core.di
 
 import androidx.room.Room
-import id.expert.capstoneproject.core.BuildConfig
 import id.expert.capstoneproject.core.BuildConfig.*
 import id.expert.capstoneproject.core.data.MoviesRepository
 import id.expert.capstoneproject.core.data.source.local.LocalDataSource
