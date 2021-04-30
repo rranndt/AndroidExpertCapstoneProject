@@ -27,7 +27,7 @@
 - [Introduction](#Introduction)
 - [Installation](#Installation)
 - [Features](#Features)
-- [Tech Stack](#Tech Stack)
+- [Tech Stack](#Tech-Stack)
 - [Dependencies](#Dependencies)
 
 ## Introduction
