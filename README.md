@@ -22,9 +22,9 @@
 ## Introduction
 
 This project is actually just a simple project, the project was created for submission dicoding android expert online class.
-There are several branches, but the 'master' branch is the latest update. I'm using (https://www.themoviedb.org/) as a base url for this project.
+There are several branches, but the 'master' branch is the latest update. I'm using https://www.themoviedb.org/ as a base url for this project.
 
-You can get the API_KEY at (https://developers.themoviedb.org/3)
+You can get the API_KEY at https://developers.themoviedb.org/3
 
 ## Demo App
 <h3 align="center"> Splash Screen </h3>
