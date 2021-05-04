@@ -2,7 +2,7 @@
   Capstone Project : Movie App
 </h1>
 <p align="center">
-  Android Expert in Dicoding Course.
+  Android Expert Course.
 </p>
 <p align="center">
   <a href="http://developer.android.com/index.html"><img alt="Platform" src="https://img.shields.io/badge/platform-Android-green"></a>
@@ -21,7 +21,7 @@
 
 ## Introduction
 
-This project is actually just a simple project, the project was created for submission dicoding android expert online class.
+This project is actually just a simple project, the project was created for submission android expert online class.
 There are several branches, but the 'master' branch is the latest update. I'm using https://www.themoviedb.org/ as a base url for this project.
 
 You can get the API_KEY at https://developers.themoviedb.org/3
