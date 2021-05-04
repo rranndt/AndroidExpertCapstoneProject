@@ -55,7 +55,7 @@ class MoviesFragment : Fragment() {
                     is Resource.Loading -> showShimmer()
                     is Resource.Success -> {
                         hideShimmer()
-                        moviesAdapter.setData(movies.data)
+                        movies.data?.let { moviesAdapter.setData(it) }
                     }
                     is Resource.Error -> {
                         hideShimmer()

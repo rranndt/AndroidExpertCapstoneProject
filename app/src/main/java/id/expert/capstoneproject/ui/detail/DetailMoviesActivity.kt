@@ -70,7 +70,7 @@ class DetailMoviesActivity : AppCompatActivity() {
                         binding.tvTitleSimilar.gone()
                         binding.similarLine.gone()
                     } else {
-                        moviesAdapter.setData(movieSimilar.data)
+                        movieSimilar.data?.let { moviesAdapter.setData(it) }
                     }
                 }
                 is Resource.Error -> {
