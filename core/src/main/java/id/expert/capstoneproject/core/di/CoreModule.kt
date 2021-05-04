@@ -20,6 +20,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
+
 val databaseModule = module {
     factory { get<MoviesDatabase>().moviesDao() }
     single {
@@ -36,16 +37,20 @@ val databaseModule = module {
 
 val networkModule = module {
     single {
-        val hostname = CERT_URL
-        val certificatePinner = CertificatePinner.Builder()
-            .add(hostname, CERT_PINNING0)
-            .add(hostname, CERT_PINNING1)
-            .build()
+        val logging = HttpLoggingInterceptor()
+        if (DEBUG) {
+            logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+        }
         OkHttpClient.Builder()
-            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+            .addInterceptor(logging)
             .connectTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
-            .certificatePinner(certificatePinner)
+            .certificatePinner(
+                CertificatePinner.Builder()
+                    .add(CERT_URL, CERT_PINNING0)
+                    .add(CERT_URL, CERT_PINNING1)
+                    .build()
+            )
             .build()
     }
     single {
