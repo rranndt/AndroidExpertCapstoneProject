@@ -5,9 +5,5 @@ import com.google.gson.annotations.SerializedName
 
 data class ListMoviesResponse(
     @SerializedName("results")
-    val moviesResponses: List<MoviesResponse>,
-
-    @SerializedName("total_results")
-    val total_results: Int
-
+    val moviesResponses: List<MoviesResponse>
 )
