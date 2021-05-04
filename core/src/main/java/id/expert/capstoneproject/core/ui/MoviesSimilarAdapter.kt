@@ -2,20 +2,23 @@ package id.expert.capstoneproject.core.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import id.expert.capstoneproject.core.databinding.RecyclerItemGridSimilarMoviesBinding
 import id.expert.capstoneproject.core.domain.model.Movies
+import id.expert.capstoneproject.core.utils.DiffUtils
 
 class MoviesSimilarAdapter : RecyclerView.Adapter<MoviesSimilarAdapter.ListViewHolder>() {
 
     private var listData = ArrayList<Movies>()
     var onItemClick: ((Movies) -> Unit)? = null
 
-    fun setData(newListData: List<Movies>?) {
-        if (newListData == null) return
+    fun setData(newListData: List<Movies>) {
+        val diffCallback = DiffUtils(listData, newListData)
+        val diffUtil = DiffUtil.calculateDiff(diffCallback)
         listData.clear()
         listData.addAll(newListData)
-        notifyDataSetChanged()
+        diffUtil.dispatchUpdatesTo(this)
     }
 
     override fun onCreateViewHolder(
