@@ -39,6 +39,7 @@ android {
         }
         debug {
             initWith release
+            debuggable true
         }
     }
     compileOptions {
