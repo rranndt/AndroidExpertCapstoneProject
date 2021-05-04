@@ -12,7 +12,7 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$espresso_version"
     implementation "androidx.annotation:annotation:$annotation"
-    androidTestImplementation "androidx.annotation:annotation:$annotation"
+    androidTestImplementation "androidx.annotation:annotation:1.2.0"
 
     // CardView
     implementation "androidx.cardview:cardview:$cardview_version"
