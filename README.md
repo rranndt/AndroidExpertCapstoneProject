@@ -1,5 +1,5 @@
 <h1 align="center">
-  Capstone Project : Movie App
+  Movie App
 </h1>
 <p align="center">
   Android Expert Course.
@@ -21,7 +21,6 @@
 
 ## Introduction
 
-This project is actually just a simple project, the project was created for submission android expert online class.
 There are several branches, but the 'master' branch is the latest update. I'm using https://www.themoviedb.org/ as a base url for this project.
 
 You can get the API_KEY at https://developers.themoviedb.org/3
